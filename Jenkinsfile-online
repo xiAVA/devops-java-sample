@@ -39,11 +39,19 @@ stage('Debug in Maven') {
         }
     }
 }
+
+
         stage ('checkout scm') {
             steps {
    container('maven') {
-      sh 'git config --global http.sslVerify false'
-      checkout scm
+  sh '''
+                # 清理可能存在的旧文件（可选）
+                rm -rf ./*
+                # 关闭 SSL 验证（临时）
+                git config --global http.sslVerify false
+                # 手动克隆（浅克隆，只拉取 sonarqube 分支）
+                git clone --depth 1 --branch sonarqube https://github.com/xiAVA/devops-java-sample.git .
+            '''
          }
             }
         }
