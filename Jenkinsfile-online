@@ -23,9 +23,9 @@ pipeline {
     stages {
         stage ('checkout scm') {
             steps {
-
+container('maven') {
                 checkout(scm)
-           
+             }
             }
         }
 
