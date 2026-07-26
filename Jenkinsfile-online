@@ -23,7 +23,7 @@ pipeline {
     stages {
         stage ('checkout scm') {
             steps {
-container('maven') {
+withEnv(['GIT_SSL_NO_VERIFY=true']) {
                 checkout(scm)
              }
             }
