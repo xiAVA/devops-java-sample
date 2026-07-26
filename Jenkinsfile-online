@@ -23,10 +23,10 @@ pipeline {
     stages {
         stage ('checkout scm') {
             steps {
-container('maven') {
-    sh 'git config --global http.sslVerify false'
-    checkout scm
-}
+   container('maven') {
+      sh 'git config --global http.sslVerify false'
+      checkout scm
+         }
             }
         }
 
