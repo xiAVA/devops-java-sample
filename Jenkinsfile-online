@@ -23,9 +23,9 @@ pipeline {
     stages {
         stage ('checkout scm') {
             steps {
-             withEnv(['http_proxy=http://192.168.56.1:7897', 'https_proxy=http://192.168.56.1:7897']){
+
                 checkout(scm)
-                 }
+           
             }
         }
 
